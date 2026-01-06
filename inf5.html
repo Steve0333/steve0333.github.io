@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>5. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            ol > li {
+                padding: 10px;
+            }
+
+            code {
+                font-size: 1.5rem;
+                background-color: #3A3F4B;
+                font-weight: 600;
+                padding: 5px;
+            }
+
+            img {
+                height: 100%;
+                margin-left: 40px;
+                border-radius: 10px;
+            }
+
+            table {
+                border-collapse: collapse;
+                margin-left: 50px;
+            }
+
+            tr, th, td {
+                border: 2px solid #454951;
+                padding: 5px;
+            }
+
+            .card {
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+                overflow-y: scroll;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                min-height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                display: flex;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 9%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            #q5 > ul > li, #q7 > ul > li, #q7 > ul > li > ul > li, ol > li > ul > li,
+            ul > li > ul > li, #q3 > ul > li, #q2 > ul > li, #q1 > ul > li {
+                padding: 10px;
+            }
+
+            #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="inf5.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>5. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Aké operácie vykonávame s údajovou štruktúrou front (FIFO, queue)?
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1">
+                        <ul>
+                            <li><b>enqueue</b> – vloženie prvku na koniec frontu</li>
+                            <li><b>dequeue</b> – odobratie prvku z čela frontu</li>
+                            <li><b>peek/front</b> – nahliadnutie na prvý prvok bez jeho odstránenia</li>
+                            <li><b>isEmpty</b> – test, či je front prázdny</li>
+                            <li><b>size</b> – zistenie počtu prvkov</li>
+                        </ul>
+                    </div>
+                    <div id="q2">
+                        <ul>
+                            <li><b>push</b> – vloženie prvku na vrch zásobníka</li>
+                            <li><b>pop</b> – odobratie prvku z vrchu zásobníka</li>
+                            <li><b>peek/top</b> – nahliadnutie na vrchný prvok bez odstránenia</li>
+                            <li><b>isEmpty</b> – test, či je zásobník prázdny</li>
+                            <li><b>size</b> – počet prvkov</li>
+                        </ul>
+                    </div>
+                    <div id="q3">
+                        <ul>
+                            <li><b>insert</b> – vloženie prvku na danú pozíciu</li>
+                            <li><b>append</b> – pripojenie prvku na koniec</li>
+                            <li><b>delete/remove</b> – odstránenie prvku podľa hodnoty alebo indexu</li>
+                            <li><b>search/find</b> – vyhľadanie prvku</li>
+                            <li><b>update</b> – zmena hodnoty na určitej pozícii</li>
+                            <li><b>traverse</b> – prechod celým zoznamom</li>
+                        </ul>
+                    </div>
+                    <div id="q4">
+                        <ul>
+                            <li><b>Queue (front)</b> &rarr; First In – First Out</li>
+                            <li>Prvý vložený prvok je prvý vybratý.</li>
+                        </ul>
+                        <ul>
+                            <li><b>Stack (zásobník)</b> &rarr; Last In – First Out</li>
+                            <li>Posledný vložený prvok je prvý vybratý.</li>
+                        </ul>
+                    </div>
+                    <div id="q5">
+                        <ul>
+                            <li><b>Set (množina)</b></li>
+                            <li>prvky sú jedinečné (žiadne duplicity)</li>
+                            <li>neexistuje poradie prvkov</li>
+                            <li>operácie: <i>zjednotenie, prienik, rozdiel</i></li>
+                        </ul>
+                        <ul>
+                            <li><b>List (zoznam)</b></li>
+                            <li>duplicity sú povolené</li>
+                            <li>prvky sú v určitom poradí</li>
+                            <li>prístup pomocou indexu</li>
+                        </ul>
+                    </div>
+                    <div id="q6">
+                        <ul>
+                            <li>Príklad spájaného zoznamu s rekordmi typu študent:</li>
+                        </ul>
+                        <div class="image-container">
+                            <img src="images/inf5-6.png" alt="">
+                        </div>
+                        <ul>
+                            <li>Alebo tabuľková forma:</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>meno</th>
+                                <th>vek</th>
+                            </tr>
+                            <tr>
+                                <td>Anna</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>Peter</td>
+                                <td>22</td>
+                            </tr>
+                            <tr>
+                                <td>Lucia</td>
+                                <td>19</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="q7">
+                        <ul>
+                            <li>Graf pozostáva z:
+                                <ul>
+                                    <li>vrcholov <i>(nodes)</i></li>
+                                    <li>hrán <i>(edges)</i></li>
+                                </ul>
+                            </li>
+                            <li>
+                                Orientovaný graf
+                                <ul>
+                                    <li>Hrany majú smer (šípky), napr. <code>A &rarr; B</code>.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Binárny strom
+                                <ul>
+                                    <li>Špeciálny prípad stromu, kde každý vrchol má maximálne dvoch potomkov <i>(ľavý a pravý)</i>.</li>
+                                    <li>Strom je graf bez cyklov, s jedným koreňom.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q8">
+                        <ul>
+                            <li>Príklad: triedime zoznam <code>[5, 3, 2, 4]</code></li>
+                        </ul>
+                        <ol>
+                            <li>priechod:
+                                <ul>
+                                    <li>5 > 3 &rarr; výmena &rarr; <code>[3, 5, 2, 4]</code></li>
+                                    <li>5 > 2 &rarr; výmena &rarr; <code>[3, 2, 5, 4]</code></li>
+                                    <li>5 > 4 &rarr; výmena &rarr; <code>[3, 2, 4, 5]</code></li>
+                                </ul>
+                            </li>
+                            <li>priechod:
+                                <ul>
+                                    <li>3 > 2 &rarr; výmena &rarr; <code>[2, 3, 4, 5]</code></li>
+                                    <li>3 > 4 &rarr; OK</li>
+                                    <li>4 > 5 &rarr; OK</li>
+                                </ul>
+                            </li>
+                            <li>priechod:
+                                <ul>
+                                    <li>všetko už je správne &rarr; koniec</li>
+                                    <li><b>Výsledok:</b> <code>[2, 3, 4, 5]</code></li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="q9">
+                        <ul>
+                            <li><b>Binárne vyhľadávanie</b> funguje len na usporiadanom zozname.</li>
+                            <li>Postup:
+                                <ol>
+                                    <li>Otvorím slovník približne v strede.</li>
+                                    <li>Porovnám hľadané slovo s tým, ktoré vidím.</li>
+                                    <li>Ak je hľadané slovo „menšie“, idem do ľavej polovice.</li>
+                                    <li>Ak je „väčšie“, idem do pravej polovice.</li>
+                                    <li>Proces opakujem, kým:</li>
+                                </ol>
+                            </li>
+                            <li>slovo nenájdem,</li>
+                            <li>alebo neostane žiadna časť na prehľadávanie.</li>
+                        </ul>
+                    </div>
+                    <div id="q10">
+                        <ul>
+                            <li><b>Kardinalita</b> určuje početný vzťah medzi dvoma tabuľkami:
+                                <ul>
+                                    <li><code>1 : N</code> – jeden záznam korešponduje s mnohými (najčastejší prípad)</li>
+                                    <li><code>1 : 1</code> – jeden k jednému</li>
+                                    <li><code>M : N</code> – mnoho k mnohým (rieši sa pomocnou tabuľkou)</li>
+                                </ul>
+                            </li>
+                            <li>Príklad z prednášky: <code>1 osoba → N áut</code> <i>(osoba môže vlastniť viac áut)</i>.</li>
+                        </ul>
+                    </div>
+                    <div id="q11">
+                        <ul>
+                            <li><b>Ochrana integrity</b> zabezpečuje, že údaje v databáze sú:
+                                <ul>
+                                    <li>správne</li>
+                                    <li>úplné</li>
+                                    <li>zmysluplné</li>
+                                    <li>vzájomne konzistentné</li>
+                                </ul>
+                            </li>
+                            <li>Používa sa napr.:
+                                <ul>
+                                    <li>kontrola vstupných hodnôt (napr. mesto musí existovať v zozname miest)</li>
+                                    <li>referenčná integrita (nemožno zmazať rodiča, ak má dieťa)</li>
+                                    <li>unikátne kľúče</li>
+                                    <li>obmedzenia typu (dátum, číslo, povolené hodnoty)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/11</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>

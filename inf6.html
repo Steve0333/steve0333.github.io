@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>6. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            ol > li {
+                padding: 10px;
+            }
+
+            code {
+                font-size: 1.5rem;
+                background-color: #3A3F4B;
+                font-weight: 600;
+                padding: 5px;
+            }
+
+            img {
+                height: 100%;
+                margin-left: 40px;
+                border-radius: 10px;
+            }
+
+            table {
+                border-collapse: collapse;
+                margin-left: 50px;
+            }
+
+            tr, th, td {
+                border: 2px solid #454951;
+                padding: 5px;
+            }
+
+            .card {
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+                overflow-y: scroll;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                min-height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                display: flex;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 6%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            #q5 > ul > li, ul > li > ul > li, #q14 > ul > li, #q15 > ul > li {
+                padding: 10px;
+            }
+
+            #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11, #q12, #q13, #q14, #q15 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="inf6.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>6. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Čo je najspodnejšia a čo je najvyššia vrstva modelu OSI?
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1">
+                        <ul>
+                            <li><b>Najspodnejšia vrstva:</b> fyzická vrstva <i>(1. layer)</i> – káble, signály, prenos bitov</li>
+                            <li><b>Najvyššia vrstva:</b> aplikačná vrstva <i>(7. layer)</i> – služby pre aplikácie, napr. <code>HTTP</code>, <code>FTP</code></li>
+                        </ul>
+                    </div>
+                    <div id="q2">
+                        <ol>
+                            <li>Linková vrstva</li>
+                            <li>Sieťová (internetová) vrstva – <b>IP</b></li>
+                            <li>Transportná vrstva – <b>TCP</b></li>
+                            <li>Aplikačná vrstva</li>
+                        </ol>
+                    </div>
+                    <div id="q3">
+                        <ul>
+                            <li><b>IP adresa</b> – číselná adresa zariadenia v sieti (napr. <code>193.87.45.12</code>)</li>
+                            <li><b>Webová adresa</b> <i>(URL/doména)</i> – textový názov, ktorý si ľudia ľahšie zapamätajú (napr. <i>www.google.com</i>), ktorý sa prekladá na <b>IP adresu</b> pomocou <b>DNS</b>.</li>
+                        </ul>
+                    </div>
+                    <div id="q4">
+                        <ul>
+                            <li><b>DNS</b> je "telefónny zoznam" internetu – prekladá názvy domén (<code>www.adresa.com</code>) na príslušné <b>IP adresy</b>.</li>
+                        </ul>
+                    </div>
+                    <div id="q5">
+                        <ul>
+                            <li><b>IP (Internet Protocol)</b></li>
+                            <li>stará sa o adresovanie a doručovanie paketov medzi počítačmi</li>
+                            <li>nezaručuje doručenie <i>(best-effort)</i></li>
+                        </ul>
+                        <ul>
+                            <li><b>TCP (Transmission Control Protocol)</b></li>
+                            <li>rozdeľuje dáta na pakety, zabezpečuje kontrolu chýb</li>
+                            <li>zaručuje spoľahlivý a usporiadaný prenos</li>
+                        </ul>
+                    </div>
+                    <div id="q6">
+                        <ul>
+                            <li><b>MAC adresu</b> má <b>sieťová karta</b> každého zariadenia <i>(Wi-Fi karta, Ethernet karta)</i>.</li>
+                            <li>Je jedinečná a je nastavená výrobcom hardvéru.</li>
+                        </ul>
+                    </div>
+                    <div id="q7">
+                        <ul>
+                            <li><b>IPv4</b>
+                                <ul>
+                                    <li><b>32-bit</b>ová adresa</li>
+                                    <li>cca 4,3 miliardy adries</li>
+                                    <li>zapisuje sa vo forme 4 čísel (napr. <code>192.168.0.1</code>)</li>
+                                </ul>
+                            </li>
+                            <li><b>IPv6</b>
+                                <ul>
+                                    <li><b>128-bit</b>ová adresa</li>
+                                    <li>prakticky nevyčerpateľný počet adries</li>
+                                    <li>zapisuje sa v hexadecimálnej forme (napr. <code>2001:0db8:85a3::1319</code>)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q8">
+                        <ul>
+                            <li><b>HTTP</b> – slúži na prenos webových stránok <i>(HTML dokumentov)</i>.</li>
+                            <li><b>FTP</b> – slúži výhradne na prenos súborov v sieti.</li>
+                        </ul>
+                    </div>
+                    <div id="q9">
+                        <ul>
+                            <li><b>Netiketa</b> = súbor pravidiel slušného správania na internete.</li>
+                            <li>Zahŕňa: slušnosť, nešírenie spamu/hoaxov, rešpektovanie súkromia, vecnú diskusiu, obmedzenie emócií.</li>
+                        </ul>
+                    </div>
+                    <div id="q10">
+                        <ul>
+                            <li><b>Cloud computing</b>
+                                <ul>
+                                    <li>poskytuje vzdialené služby (úložisko, aplikácie, výpočty)</li>
+                                    <li>infraštruktúru spravuje poskytovateľ</li>
+                                </ul>
+                            </li>
+                            <li><b>Grid computing</b>
+                                <ul>
+                                    <li>„virtuálny superpočítač“ zložený z množstva zariadení</li>
+                                    <li>počítače dobrovoľníkov spoločne riešia veľkú úlohu <i>(BOINC, Enigma@Home)</i></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q11">
+                        <ol>
+                            <li><b>Strata dát</b></li>
+                            <li><b>Únik dát</b></li>
+                            <li><b>Pozmeňovanie dát</b></li>
+                        </ol>
+                    </div>
+                    <div id="q12">
+                        <ul>
+                            <li><b>Kryptografia</b> – šifruje obsah dát (dáta vidieť, ale nerozumieme ich obsahu).</li>
+                            <li><b>Steganografia</b> – skrýva samotnú existenciu dát (nie je vidno, že nejaké dáta existujú).</li>
+                        </ul>
+                    </div>
+                    <div id="q13">
+                        <ul>
+                            <li><b>Symetrické šifrovanie</b>
+                                <ul>
+                                    <li>používa jeden <b>spoločný kľúč</b> na šifrovanie aj dešifrovanie</li>
+                                    <li>rýchle, ale kľúč treba bezpečne odovzdať</li>
+                                </ul>
+                            </li>
+                            <li><b>Asymetrické šifrovanie</b> (napr. RSA)
+                                <ul>
+                                    <li>používa verejný kľúč na šifrovanie a súkromný kľúč na dešifrovanie</li>
+                                    <li>bezpečné pre komunikáciu cez internet</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q14">
+                        <ul>
+                            <li>Prieskum systému (skenovanie portov, sniffing)</li>
+                            <li>Neoprávnený prístup (hacknutie účtu)</li>
+                            <li>DoS útok (Denial of Service)</li>
+                            <li>DNS poisoning</li>
+                            <li>Phishing</li>
+                            <li>Červy, vírusy, trójske kone</li>
+                        </ul>
+                    </div>
+                    <div id="q15">
+                        <ul>
+                            <li>používať silné heslá a ich pravidelnú zmenu</li>
+                            <li>prideľovať len nevyhnutné prístupové práva</li>
+                            <li>logovať pokusy o prihlásenie</li>
+                            <li>šifrovať dátové prenosy (<code>HTTPS</code>, <code>VPN</code>)</li>
+                            <li>blokovať obrazovku pri nečinnosti (heslo na screen saver)</li>
+                            <li>aktualizovať systém a aplikácie (záplaty – patch)</li>
+                            <li>oddeliť rôzne právomoci používateľov</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/15</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>

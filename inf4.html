@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>4. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            code {
+                font-size: 1.5rem;
+                background-color: #3A3F4B;
+                font-weight: 600;
+                padding: 5px;
+            }
+
+            img {
+                height: 100%;
+                margin-left: 40px;
+                border-radius: 10px;
+            }
+
+            .card {
+                overflow-y: auto;
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+                box-sizing: border-box;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                min-height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                display: flex;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 12%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            #q6 > ul > li {
+                padding: 10px;
+            }
+
+            #q1 > ul > li {
+                line-height: 150%;
+            }
+
+            #q2, #q3, #q4, #q5, #q6, #q7, #q8 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="inf4.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>4. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Aký je rozdiel medzi skalárnou premennou (scalar variable) a poľom (array)?
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1">
+                        <ul>
+                            <li><b>Skalárna premenná</b> obsahuje jednu jedinú hodnotu (napr. <code>int x</code>, <code>float y</code>). &rarr; Nemá vnútornú štruktúru.</li>
+                            <li><b>Pole (array)</b> obsahuje viacero hodnôt uložených za sebou v pamäti, ku ktorým sa pristupuje indexovaním (napr. <code>pole[0]</code>, <code>pole[1]</code>). → Je to jednoduchá dátová štruktúra usporiadaná do tabuľky.</li>
+                        </ul>
+                    </div>
+                    <div id="q2">
+                        <ul>
+                            <li><b>Lokálna premenná</b> je deklarovaná vo vnútri funkcie, bloku alebo cyklu a platí len medzi <code>{ ... }</code>.</li>
+                            <li><b>Globálna premenná</b> je deklarovaná mimo všetkých funkcií a jej platnosť je v celom programe od miesta deklarácie smerom nadol.</li>
+                        </ul>
+                    </div>
+                    <div id="q3">
+                        <ul>
+                            <li>
+                                Smerník musí poznať typ premennej, na ktorú ukazuje, pretože operácie ako <code>p++</code> musia vedieť, o koľko bajtov sa má adresa posunúť.
+                                <ul>
+                                    <li><code>char*</code> sa posunie o <b>1 bajt</b></li>
+                                    <li><code>int*</code> sa posunie o <b>4 bajty</b> (typicky)</li>
+                                </ul>
+                            </li>
+                            <li>Typ smerníka teda neurčuje veľkosť smerníka, ale veľkosť cieľového typu.</li>
+                        </ul>
+                    </div>
+                    <div id="q4">
+                        <ul>
+                            <li>Obojstranne prepojený <b>(doubly linked)</b> zoznam obsahuje v každom prvku:
+                                <ul>
+                                    <li>adresu predchádzajúceho prvku – <code>previous</code></li>
+                                    <li>adresu nasledujúceho prvku – <code>next</code></li>
+                                </ul>
+                            </li>
+                            <li>Každý prvok teda obsahuje dve adresy &rarr; smerníky pre obe strany.</li>
+                        </ul>
+                    </div>
+                    <div id="q5">
+                        <ul>
+                            <li>Funkcia <code>malloc()</code>:</li>
+                            <li>Parameter: <b>počet bajtov</b>, ktoré treba alokovať</li>
+                            <li>najčastejšie: <code>N * sizeof(typ)</code></li>
+                            <li>Vráti: <b>adresu</b> (smerník) na začiatok prideleného priestoru v pamäti alebo <code>NULL</code>, ak sa pamäť nepodarilo alokovať.</li>
+                            <li>Príklad:</li>
+                        </ul>
+                        <div class="image-container">
+                            <img src="images/inf4-5.png" alt="">
+                        </div>
+                    </div>
+                    <div id="q6">
+                        <ul>
+                            <li><b>Deklarácia</b> oznamuje, že niečo existuje (typ, názov, prototyp).</li>
+                            <li>napr.</li>
+                        </ul>
+                        <div class="image-container">
+                            <img src="images/inf4-6.png" alt="">
+                        </div>
+                        <ul>
+                            <li><b>Definícia</b> presne opisuje, čo to je – rezervuje pamäť alebo obsahuje telo funkcie.</li>
+                            <li>napr.</li>
+                        </ul>
+                        <div class="image-container">
+                            <img src="images/inf4-6-2.png" alt="">
+                        </div>
+                    </div>
+                    <div id="q7">
+                        <ul>
+                            <li>Keď z dátových štruktúr urobíme objekty (C++):
+                                <ul>
+                                    <li><b>pribudnú metódy</b> – funkcie, ktoré s týmito dátami pracujú vzniká zapuzdrenie (encapsulation) → dáta môžu byť súkromné (private)</li>
+                                    <li>objekt tak spája <b>dáta + správanie</b></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q8">
+                        <ul>
+                            <li><b>Funkcie</b> &rarr; základné delenie na logické bloky</li>
+                            <li><b>Modulárna štruktúra</b> programu</li>
+                            <li><b>Samostatné súbory</b> (<code>.c</code> + <code>.h</code>) pre organizáciu kódu</li>
+                            <li><b>Rozdelenie zodpovedností</b> (Separation of Concerns) → každý modul rieši jednu úlohu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/8</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>

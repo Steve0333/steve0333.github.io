@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>3. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            code {
+                font-size: 1.5rem;
+            }
+
+            img {
+                height: 100%;
+                border-radius: 10px;
+            }
+
+            .card {
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-container {
+                height: 80%;
+                width: auto;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 25%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            #q2, #q3, #q4 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="inf3.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>3. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Napíšte (aspoň v pseudokóde) iteračný výpočet faktoriálu
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1" class="image-container">
+                        <img src="images/inf3-1.png" alt="">
+                    </div>
+                    <div id="q2" class="image-container">
+                        <img src="images/inf3-2.png" alt="">
+                    </div>
+                    <div id="q3" class="image-container">
+                        <img src="images/inf3-3.png" alt="">
+                    </div>
+                    <div id="q4" class="image container">
+                        <img src="images/inf3-4.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/4</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>

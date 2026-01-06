@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>7. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10vh;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            li {
+                font-size: 1.2rem;
+                padding: 10px;
+            }
+
+            ol > li {
+                padding: 10px;
+                line-height: 150%;
+            }
+
+            code {
+                font-size: 1.2rem;
+                background-color: #3A3F4B;
+                font-weight: 600;
+                padding: 5px;
+            }
+
+            img {
+                height: 100%;
+                margin: 20px;
+                border-radius: 10px;
+            }
+
+            table {
+                border-collapse: collapse;
+                margin-left: 50px;
+            }
+
+            tr, th, td {
+                border: 2px solid #454951;
+                padding: 5px;
+            }
+
+            .card {
+                width: 100%;
+                margin: 3%;
+                padding: 30px;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .image-container {
+                width: 100%;
+                display: flex;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 6%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+                margin-bottom: 50px;
+            }
+
+            #q2 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="inf7.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>7. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <p id="question">
+                    Zakódujte danú postupnosť znakov pomocou Huffmannovho kódu – vytvorte a nakreslite kódový strom (to je všetko)
+                </p>
+                <ul>
+                    <li><b>Priklad:</b></li>
+                    <li>Vstup (frekvencie znakov, často uvádzaný v literatúre):
+                        <ul>
+                            <li>a : 5</li>
+                            <li>b : 9</li>
+                            <li>c : 12</li>
+                            <li>d : 13</li>
+                            <li>e : 16</li>
+                            <li>f : 45</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ol>
+                    <li>Postup zostavenia Huffmanovho stromu (zjednodušené kroky)
+                        <ol type="i">
+                            <li>Zoradíme uzly podľa frekvencie (od najmenšej):<br>
+                                <code>a(5), b(9), c(12), d(13), e(16), f(45)</code>
+                            </li>
+                            <li>Zoberieme dva najmenšie uzly a vytvoríme ich rodiča s frekvenciou súčtu:
+                                <ul>
+                                    <li>zmergovať <code>a(5) + b(9)</code> &rarr; uzol <code>ab(14)</code></li>
+                                    <li>nový zoznam (zoradený):<br>
+                                        <code>c(12), d(13), ab(14), e(16), f(45)</code>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Zoberieme dve najmenšie: <code>c(12) + d(13)</code> &rarr; <code>cd(25)</code>.
+                                <ul>
+                                    <li>nový zoznam:<br>
+                                        <code>ab(14), e(16), cd(25), f(45)</code>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Zoberieme dve najmenšie: <code>ab(14) + e(16)</code> &rarr; <code>abe(30)</code>.
+                                <ul>
+                                    <li>nový zoznam:<br>
+                                        <code>cd(25), abe(30), f(45)</code>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Zoberieme dve najmenšie: <code>cd(25) + abe(30)</code> &rarr; <code>cdabe(55)</code>.
+                                <ul>
+                                    <li>nový zoznam:<br>
+                                        <code>f(45), cdabe(55)</code>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Zoberieme posledné dve: <code>f(45) + cdabe(55)</code> &rarr; <code>koreň(100)</code>.</li>
+                        </ol>
+                    </li>
+                    <li>Priradenie bitov<br>
+                        <p><b>Štandardný princíp:</b> pri každom rozvetvení priradíme jednej vetve bit <code>0</code> a druhej vetve bit <code>1</code> (poradie 0/1 je konvencia — výsledné kódy sú platné pri ľubovoľnej konzistentnej voľbe). Použijem konvenciu: <code>ľavá vetva = 0</code>, <code>pravá vetva = 1</code>.</p>
+                    </li>
+                    <li>Výsledný strom (ASCII diagram)<br>
+                        <img src="images/inf7-1.png" alt="">
+                    </li>
+                    <li>Kódy pre jednotlivé znaky (čítaním od korena: <code>ľavá = 0</code>, <code>pravá = 1</code>)
+                        <ul>
+                            <li>f: <code>0</code> (f je priamo v ľavej vetve koreňa &rarr; krátky kód, lebo má najväčšiu frekvenciu)</li>
+                            <p>Pre pravú vetvu (prefix <code>1</code>):</p>
+                            <li>c : <code>100</code></li>
+                            <li>d : <code>101</code></li>
+                            <li>a : <code>1100</code></li>
+                            <li>b : <code>1101</code></li>
+                            <li>e : <code>111</code></li>
+                            (tieto kódy sú presne známe z poučného príkladu; dĺžky zodpovedajú frekvenciám — častejší <b>f</b> má <b>1 bit</b>, najriedkejší <b>a</b> má <b>4 bity</b>)
+                        </ul>
+                    </li>
+                    <li>Príklad zakódovania reťazca</li>
+                    <p style="font-size: 1.2rem;">Ak chceme zakódovať napr. reťazec <b>"abcdef"</b>, použijeme mapovanie:</p>
+                    <ul>
+                        <li>a &rarr; 1100</li>
+                        <li>b &rarr; 1101</li>
+                        <li>c &rarr; 100</li>
+                        <li>d &rarr; 101</li>
+                        <li>e &rarr; 111</li>
+                        <li>f &rarr; 0</li>
+                    </ul>
+                    <p style="font-size: 1.2rem;">Kódovaný bitový reťazec:</p>
+                    <p style="font-size: 1.2rem;"">
+                        <code>1100</code> <code>1101</code> <code>100</code> <code>101</code> <code>111</code> <code>0</code> → spojene: <code>110011011001011110</code>
+                    </p>
+                    <li>Poznámky
+                        <ul>
+                            <li>Huffmanov kód je <b>prefixový</b> (žiadny kód nie je prefixom iného) — dekódovanie je jednoznačné.</li>
+                            <li>Ak by sme pri zlučovaní menili poradie priradenia 0/1, kódy by sa líšili, ale dĺžky zostávajú rovnaké (efektívnosť zachovaná).</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>2. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            .card {
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 6%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11, #q12, #q13, #q14, #q15 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="inf2.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>2. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Kedy je algoritmus konečný a kedy rezultatívny?
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1">
+                        <ul>
+                            <li>Algoritmus je <b>konečný</b>, ak sa po konečnom počte krokov vždy zastaví.</li>
+                            <li>Algoritmus je <b>rezultatívny</b>, ak vždy skončí s jednoznačným výsledkom.</li>
+                        </ul>
+                    </div>
+                    <div id="q2">
+                        <ul>
+                            <li><b>Hromadný</b> je vtedy, ak je použiteľný na viacero rôznych vstupov.</li>
+                            <li><b>Elementárny</b> je vtedy, ak sa skladá z najzákladnejších, ďalej nedeliteľných krokov.</li>
+                        </ul>
+                    </div>
+                    <div id="q3">
+                        <ul>
+                            <li>Vstupno-výstupná páska (nekonečná pamäť).</li>
+                            <li>Čítacia/zapisovacia hlava.</li>
+                            <li>Riadiaca jednotka so stavmi.</li>
+                        </ul>
+                    </div>
+                    <div id="q4">
+                        <ul>
+                            <li>Ovál – začiatok/koniec.</li>
+                            <li>Obdĺžnik – príkaz/výpočet.</li>
+                            <li>Kosoštvorec – rozhodovanie (podmienka).</li>
+                        </ul>
+                    </div>
+                    <div id="q5">
+                        <ul>
+                            <li>Cieľom je zistiť, či sa počítač dokáže správať nerozoznateľne od človeka.</li>
+                            <li>CAPTCHA</li>
+                        </ul>
+                    </div>
+                    <div id="q6">
+                        <ul>
+                            <li>Podľa rastúcej zložitosti: O(log N) → O(N) → O(N²).</li>
+                        </ul>
+                    </div>
+                    <div id="q7">
+                        <ul>
+                            <li>Používa symbolické názvy namiesto binárneho kódu.</li>
+                            <li>Umožňuje pomenovanie premenných a adries.</li>
+                            <li>Obsahuje makrá a konštanty.</li>
+                        </ul>
+                    </div>
+                    <div id="q8">
+                        <ul>
+                            <li><b>Kompilačný jazyk</b> sa najprv celý preloží do strojového kódu a potom spustí (napr. C, C++).</li>
+                            <li><b>Interpretačný jazyk</b> sa vykonáva priamo po jednotlivých krokoch (napr. Python, JavaScript).</li>
+                        </ul>
+                    </div>
+                    <div id="q9">
+                        <ul>
+                            <li>Rýchlejšie pre skúsených používateľov.</li>
+                            <li>Umožňuje skriptovanie a automatizáciu.</li>
+                            <li>Má menšie nároky na výkon než grafické rozhranie.</li>
+                        </ul>
+                    </div>
+                    <div id="q10">
+                        <ul>
+                            <li>Ak každému údaju priraďuje typ a kontroluje jeho správnosť počas prekladu alebo behu programu.</li>
+                        </ul>
+                    </div>
+                    <div id="q11">
+                        <ul>
+                            <li>Príkaz vykoná akciu, ale nemá hodnotu (napr. if, while, priradenie).</li>
+                            <li>Výraz má hodnotu (napr. 2+3, x>0).</li>
+                        </ul>
+                    </div>
+                    <div id="q12">
+                        <ul>
+                            <li>Sú to rezervované slová so špeciálnym významom, ktoré nemožno použiť ako názvy premenných (napr. if, while, return).</li>
+                        </ul>
+                    </div>
+                    <div id="q13">
+                        <ul>
+                            <li><b>Syntaktická chyba:</b> porušenie pravidiel gramatiky jazyka.</li>
+                            <li><b>Sémantická chyba:</b> program je syntakticky správny, ale vykonáva inú, nesprávnu činnosť.</li>
+                        </ul>
+                    </div>
+                    <div id="q14">
+                        <ul>
+                            <li><b>Imperatívny:</b> pozostáva z postupnosti príkazov urob toto a urob tamto (C, C++, Python, …)</li>
+                            <li><b>Deklaratívny:</b> pozostáva zo zápisu podmienok, o ktorých splnenie/hľadanie riešenia sa stará nejaký vykonávací program a tým vznikne výsledok, programovanie tu spočíva v definícii požiadavky čo chceme dosiahnuť</li>
+                        </ul>
+                    </div>
+                    <div id="q15">
+                        <ul>
+                            <li><b>Regulárny výraz</b> opisuje všetky reťazce, ktoré zodpovedajú danému vzoru.</li>
+                            <li><i>Príklad:</i> a* → ľubovoľný počet znakov a, vrátane prázdneho reťazca.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/15</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>
