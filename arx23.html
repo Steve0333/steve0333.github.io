@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>2. & 3. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            code {
+                font-size: 1.5rem;
+                background-color: #3A3F4B;
+                font-weight: 600;
+                padding: 5px;
+            }
+
+            img {
+                height: 100%;
+                margin-left: 40px;
+                border-radius: 10px;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 2px solid #3A3F4B;
+                padding: 10px;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .card {
+                overflow-y: auto;
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+                box-sizing: border-box;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                min-height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                display: flex;
+            }
+
+            .answer {
+                font-size: 1.5rem;
+                margin: 15px;
+                line-height: 150%;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 8%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            ul > li > ul > li, ol > li, ul > li {
+                padding: 10px;
+            }
+
+            #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11, #q12 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="arx23.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>2. & 3. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Do záhlavia písomky napíšte dnešný dátum rímskymi číslicami.
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1">
+                        <ul>
+                            <li>dni a mesiace prepisujeme podľa rímskej sústavy:
+                                <ul>
+                                    <li>I = 1,</li>
+                                    <li>V = 5,</li>
+                                    <li>X = 10,</li>
+                                    <li>L = 50,</li>
+                                    <li>C = 100,</li>
+                                    <li>D = 500,</li>
+                                    <li>M = 1000.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q2">
+                        <p class="answer"><b>Postup:</b></p>
+                        <ol>
+                            <li>Prevod <code>HEX</code> &rarr; <code>BIN</code> (každá hex cifra = <b>4 bity</b>).</li>
+                            <li>Binárny súčet s prenosmi (ako na snímkach 13–14).</li>
+                            <li>Prevod <code>BIN</code> &rarr; <code>OCT</code> (3 bity = 1 číslica v osmičkovej sústave).</li>
+                        </ol>
+                        <p class="answer"><i>(Uvedené konkrétne čísla doplníš podľa zadania — postup je vždy rovnaký.)</i></p>
+                        <p class="answer"><b>Príklad:</b></p>
+                        <p class="answer">Spočítaj: A3₁₆ + 2F₁₆</p>
+                        <ol>
+                            <li><code>HEX</code> &rarr; <code>BIN</code>
+                                <ul>
+                                    <li>A = 1010</li>
+                                    <li>3 = 0011</li>
+                                    <li>2 = 0010</li>
+                                    <li>F = 1111</li>
+                                </ul>
+                                <p class="answer">
+                                    <code>A3₁₆ = 1010 0011₂</code><br>
+                                    <code>2F₁₆ = 0010 1111₂</code>
+                                </p>
+                            </li>
+                            <li>Sčítanie<br><br>
+                                <code>&nbsp;&nbsp;1010 0011&nbsp;</code><br>
+                                <code>+ 0010 1111&nbsp;</code><br>
+                                <code>------------</code><br>
+                                <code>&nbsp;&nbsp;1101 0010₂</code>
+                            </li>
+                            <li>Prevod výsledku do <code>OCT</code><br><br>
+                                <code>110 100 010 = 6 4 2 → 642₈</code>
+                            </li>
+                        </ol>
+                        <p class="answer">Výsledok: <b>642₈</b></p>
+                    </div>
+                    <div id="q3">
+                        <p class="answer"><b>Postup:</b></p>
+                        <ol>
+                            <li>Prevod <code>OCT</code> &rarr; <code>BIN</code> (3 bity = 1 osmičková cifra).</li>
+                            <li>Násobenie 4 = aritmetický posun doľava o 2 bity (<code>&lt;&lt;2</code>)
+                                <ul>
+                                    <li>Zodpovedá snímke 9–10 o posunoch.</li>
+                                </ul>
+                            </li>
+                            <li>Prevod <code>BIN</code> &rarr; <code>HEX</code> (skupiny po 4 bitoch).</li>
+                        </ol>
+                        <p class="answer"><b>Príklad:</b></p>
+                        <p class="answer">Číslo: 157₈</p>
+                        <ol>
+                            <li><code>OCT</code> &rarr; <code>BIN</code>
+                                <ul>
+                                    <li>1 = 001</li>
+                                    <li>5 = 101</li>
+                                    <li>7 = 111</li>
+                                </ul>
+                                <code>157₈ = 001 101 111₂ = 001101111₂</code>
+                            </li>
+                            <li>Násobenie 4 = posun o 2 bity doľava<br><br>
+                                <code>001101111 &lt;&lt; 2 = 110111100₂</code>
+                            </li>
+                            <li><code>BIN</code> &rarr; <code>HEX</code><br><br>
+                                <code>0110 1111 00</code><br>
+                                <code>= 0011 0111 1100</code><br>
+                                <code>= 3 7 C → 37C₁₆</code>
+                            </li>
+                        </ol>
+                        <p class="answer">Výsledok: <b>37C₁₆</b></p>
+                    </div>
+                    <div id="q4">
+                        <p class="answer"><b>Pravidlá sčítania BCD:</b></p>
+                        <ul>
+                            <li>Sčítame binárne ako normálne (bitovo).</li>
+                            <li>Ak výsledok cifry > 9 <code>(1001₂)</code>, alebo nastal prenos &rarr; pripočítame 6 <code>(0110₂)</code>.</li>
+                            <li>Prenos pokračuje do ďalšej desiatkovej cifry.</li>
+                        </ul>
+                        <p class="answer"><i>(Doplníš čísla podľa zadania.)</i></p>
+                        <p class="answer"><b>Príklad:</b></p>
+                        <p class="answer">Sčítaj: 47 + 28 v BCD.</p>
+                        <p class="answer"><b>BCD:</b></p>
+                        <ul>
+                            <li>4 = 0100</li>
+                            <li>7 = 0111</li>
+                            <li>2 = 0010</li>
+                            <li>8 = 1000</li>
+                        </ul>
+                        <ol>
+                            <li>Sčítanie jednotiek:<br><br>
+                                <code>&nbsp;&nbsp;0111&nbsp;</code><br>
+                                <code>+&nbsp;1000&nbsp;</code><br>
+                                <code>-------</code><br>
+                                <code>&nbsp;&nbsp;1111₂ = 15₁₀ → neplatná BCD cifra (>9)</code>
+                            </li>
+                            <li> Pripočítať 6 (0110₂):<br><br>
+                                <code>&nbsp;&nbsp;1111&nbsp;</code><br>
+                                <code>+&nbsp;0110&nbsp;</code><br>
+                                <code>-------</code><br>
+                                <code>1 0101  (5 + carry 1)</code>
+                            </li>
+                            <li>Sčítanie desiatok:<br><br>
+                                <code>&nbsp;&nbsp;0100&nbsp;</code><br>
+                                <code>+&nbsp;0010&nbsp;</code><br>
+                                <code>+&nbsp;0001 (carry)</code><br>
+                                <code>----------</code><br>
+                                <code>&nbsp;&nbsp;0111 = 7</code>
+                            </li>
+                        </ol>
+                        <p class="answer">Výsledok v BCD: <b>0111 0101</b> (75)</p>
+                    </div>
+                    <div id="q5">
+                        <p class="answer"><b>Postup:</b></p>
+                        <ul>
+                            <li>Deliť číselnú hodnotu postupne dvomi a zapisovať zvyšky odzadu.</li>
+                            <li>Toto je presný postup pre binárnu reprezentáciu v prednáške (snímka 13).</li>
+                        </ul>
+                        <p class="answer"><b>Príklad:</b></p>
+                        <p class="answer">Preveď: 45₁₀</p>
+                        <ol>
+                            <li>Delenie dvomi:</li>
+                            <table>
+                                <tr>
+                                    <th>Delenie</th>
+                                    <th>Zvyšok</th>
+                                </tr>
+                                <tr>
+                                    <td>45 / 2 = 22</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>22 / 2 = 11</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>11 / 2 = 5</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>5 / 2 = 2</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>2 / 2 = 1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>1 / 2 = 0</td>
+                                    <td>1</td>
+                                </tr>
+                            </table>
+                            <li>Zvyšky odzadu:</li>
+                        </ol>
+                        <p class="answer">45₁₀ = <b>101101₂</b></p>
+                    </div>
+                    <div id="q6">
+                        <p class="answer"><b>Postup:</b></p>
+                        <ul>
+                            <li>Pre druhé číslo (odčítanec) urobíme doplnkový kód:</li>
+                        </ul>
+                        <ol>
+                            <li>Inverzia bitov (NOT)</li>
+                            <li>Pripočítanie 1</li>
+                            <li>Pripočítame ku prvému číslu.</li>
+                            <li>Ignorujeme prenos za najvyšší bit.</li>
+                        </ol>
+                        <p class="answer">Tým získame výsledok odčítania.</p>
+                        <p class="answer"><b>Príklad:</b></p>
+                        <p class="answer">Vypočítaj: 10110₂ – 01101₂</p>
+                        <ol>
+                            <li>Doplnkový kód odčítanca (01101):
+                                <ul>
+                                    <li>Invertovanie:</li>
+                                    <code>01101 → 10010</code>
+                                    <li>Pripočítať 1:</li>
+                                    <code>10010 + 1 = 10011</code>
+                                </ul>
+                            </li>
+                            <li>Sčítanie:<br><br>
+                                <code>&nbsp;&nbsp;10110&nbsp;&nbsp;</code><br>
+                                <code>+&nbsp;10011&nbsp;&nbsp;</code><br>
+                                <code>---------</code><br>
+                                <code>1&nbsp;01001&nbsp;&nbsp;</code>
+                            </li>
+                        </ol>
+                        <p class="answer">Odstránime pretečený bit:</p>
+                        <p class="answer">Výsledok: <b>01001₂ = 9</b></p>
+                    </div>
+                    <div id="q7">
+                        <p class="answer"><b>Postup:</b></p>
+                        <ul>
+                            <li>Pre každý bit násobiteľa:
+                                <ul>
+                                    <li>ak je bit <code>1</code> &rarr; pripočíta sa posunutý súčin,</li>
+                                    <li>ak je bit <code>0</code> &rarr; ignoruje sa.</li>
+                                </ul>
+                            </li>
+                            <li>Ide o „shift-and-add“ algoritmus.</li>
+                        </ul>
+                        <p class="answer"><b>Príklad:</b></p>
+                        <p class="answer">Vypočítaj: 1011₂ × 110₂<br><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1011&nbsp;</code><br>
+                            <code>×&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;</code><br>
+                            <code>-----------</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;(posun ×0)</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1011&nbsp;&nbsp;&nbsp;&nbsp;(posun ×1)</code><br>
+                            <code>+&nbsp;&nbsp;&nbsp;1011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(posun ×2)</code><br>
+                            <code>------------</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;1000010₂&nbsp;</code>
+                        </p>
+                        <p class="answer"><br>Výsledok: <b>1000010₂</b></p>
+                    </div>
+                    <div id="q8">
+                        <ul>
+                            <li><b>1 kilobajt (kB)</b> = 1000 bajtov <i>(dekadická sústava)</i></li>
+                            <li><b>1 kibibajt (KiB)</b> = 1024 bajtov <i>(binárna sústava)</i></li>
+                        </ul>
+                        <p class="answer"><b>Rozdiel:</b></p>
+                        <ul>
+                            <li>1024 − 1000 = 24 bajtov → <b>Kibibajt</b> je väčší o <b>24 bajtov</b>.</li>
+                        </ul>
+                    </div>
+                    <div id="q9">
+                        <p class="answer">Status register obsahuje napríklad:</p>
+                        <ul>
+                            <li><b>Carry bit (C)</b> - pretečenie do vyššieho bitu pri sčítaní.</li>
+                            <li><b>Overflow bit (V / O)</b> - znamená prekročenie rozsahu znamienkového čísla.</li>
+                            <li><b>Zero flag (Z)</b> - výsledok operácie je nula.</li>
+                            <li><b>Negative flag (N)</b> - výsledok je záporný</li>
+                        </ul>
+                    </div>
+                    <div id="q10">
+                        <ul>
+                            <li><b>Semiotika</b> - veda o znakoch ako takých, ich význame, interpretácii, symboloch.</li>
+                            <li><b>Lingvistika</b> - veda o ľudskom jazyku, jeho gramatike, štruktúre, fonetike.</li>
+                        </ul>
+                        <p class="answer"><b>Semiotika</b> je širšia - lingvistika je jej podmnožina.</p>
+                    </div>
+                    <div id="q11">
+                        <p class="answer"><b>Postup:</b></p>
+                        <ul>
+                            <li>Prefix: operátor ide pred argumenty</li>
+                            <li>Napr. infix: <code>(5 – 6) / 7</code>
+                                <ul>
+                                    <li>&rarr; prefix: <code>/ - 5 6 7</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q12">
+                        <p class="answer"><b>Paritný bit je nastavený takto:</b></p>
+                        <ul>
+                            <li>Ak je počet jednotiek v dátovom slove párny, <code>paritný bit = 1</code></li>
+                            <li>Ak je počet jednotiek nepárny, <code>paritný bit = 0</code></li>
+                        </ul>
+                        <p class="answer">Chyba nastane, ak <b>paritný bit</b> nezodpovedá počtu jednotiek v riadku. → Vyberieš riadok, kde sa parita nezhoduje.</p>
+                        <p class="answer"><b>Príklad:</b></p>
+                        <ul>
+                            <li>Parita (párna):
+                                <ul>
+                                    <li>ak je počet jednotiek v dátach párny &rarr; paritný bit = 1</li>
+                                    <li>ak nepárny &rarr; paritný bit = 0</li>
+                                </ul>
+                            </li>
+                            <table>
+                                <tr>
+                                    <th>Dáta</th>
+                                    <th>Počet 1</th>
+                                    <th>Paritný bit</th>
+                                    <th>Správne?</th>
+                                </tr>
+                                <tr>
+                                    <td>101011</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>&check;</td>
+                                </tr>
+                                <tr>
+                                    <td>111000</td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>&cross; CHYBA</td>
+                                </tr>
+                                <tr>
+                                    <td>010111</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>&check;</td>
+                                </tr>
+                            </table>
+                        </ul>
+                        <p class="answer">Chybný riadok: <b>2.</b></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/12</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>

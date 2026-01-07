@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>5. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            code {
+                font-size: 1.5rem;
+                background-color: #3A3F4B;
+                font-weight: 600;
+                padding: 5px;
+            }
+
+            img {
+                height: 100%;
+                margin-left: 40px;
+                border-radius: 10px;
+                max-height: 40vh;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 2px solid #3A3F4B;
+                padding: 10px;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .card {
+                overflow-y: auto;
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+                box-sizing: border-box;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                min-height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                display: flex;
+            }
+
+            .answer {
+                font-size: 1.5rem;
+                margin: 15px;
+                line-height: 150%;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 10%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            ul > li > ul > li, ol > li, ul > li {
+                padding: 10px;
+            }
+
+            #q2, #q3, #q4, #q5, #q6, #q7 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="arx5.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>5. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Napíšte pravdivostnú tabuľku pre danú boolovskú logickú funkciu s troma vstupnými parametrami (funkcia bude stanovená).
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1">
+                        <p class="answer"><b>Príklad:</b></p>
+                        <p class="answer"><code>F(A,B,C)</code> = <code>(A ∧ B) ∨ (¬C)</code></p>
+                        <p class="answer">(t.j. „<b>A AND B, alebo NOT C</b>“)</p>
+                        <p class="answer"><b>Pravdivostná tabuľka:</b></p>
+                        <table>
+                            <tr>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>C</th>
+                                <th>A ∧ B</th>
+                                <th>¬C</th>
+                                <th>(A ∧ B) ∨ (¬C)</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="q2">
+                        <p class="answer"><b>Príklad:</b></p>
+                        <p class="answer"><code>F</code> = <code>(A &xoplus; B) ∧ C</code></p>
+                        <p class="answer">(t.j. <b>XOR(A,B) a potom AND s C</b>)</p>
+                        <p class="answer"><b>Pravdivostná tabuľka:</b></p>
+                        <table>
+                            <tr>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>C</th>
+                                <th>A ⊕ B</th>
+                                <th>(A ⊕ B) ∧ C</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="q3">
+                        <ul>
+                            <li>Kombinačný obvod
+                                <ul>
+                                    <li>Výstupy závisia len na aktuálnych vstupoch.</li>
+                                    <li>Nemá vnútorný stav (pamäť).</li>
+                                    <li><b>Príklady:</b> sčítačka, multiplexor, dekodér, logické kombinácie.</li>
+                                </ul>
+                            </li>
+                            <li>Sekvenčný obvod
+                                <ul>
+                                    <li>Výstupy závisia na aktuálnych vstupoch aj na vnútornom stave (história).</li>
+                                    <li>Má pamäťové prvky (kladky / flip-flopy), teda stav, ktorý sa mení so signálom hodiniek.</li>
+                                    <li><b>Príklady:</b> registre, čítače, posuvné registre.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q4">
+                        <img src="images/arx5-4.png" alt="">
+                        <p class="answer"><b>Pravdivostná tabuľka:</b></p>
+                        <table>
+                            <tr>
+                                <th>E</th>
+                                <th>S</th>
+                                <th>R</th>
+                                <th>Q</th>
+                                <th>Q'</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>#</td>
+                                <td>#</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>#</td>
+                                <td>#</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>#</td>
+                                <td>#</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>#</td>
+                                <td>#</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>#</td>
+                                <td>#</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="q5">
+                        <ul>
+                            <li><b>D (Data) latch</b>
+                                <ul>
+                                    <li><b>Funkcia:</b> pri hodinovom signále (alebo povolení) uloží hodnotu vstupu D do výstupu Q.</li>
+                                    <li>Q_next = D (kopírovanie dát).</li>
+                                    <li><b>Použitie:</b> synchronné uchovávanie dát, registre.</li>
+                                    <li><b>Príklad:</b> tabuľky pre D flip-flop (na nábežnú hranu):</li>
+                                </ul>
+                                <table>
+                                    <tr>
+                                        <th>CLK &uarr;</th>
+                                        <th>D</th>
+                                        <th>Q_next</th>
+                                    </tr>
+                                    <tr>
+                                        <td>0 &rarr; 1</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0 &rarr; 1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table>
+                            </li>
+                            <li><b>T (Toggle/Trigger)</b>
+                                <ul>
+                                    <li><b>Funkcia:</b> ak T = 1 pri hodinovej hrane &rarr; výstup Q sa prehodí (toggle). Ak T = 0 &rarr; Q zostane nezmenené.</li>
+                                    <li>Q_next = Q_prev &xoplus; T.</li>
+                                    <li><b>Použitie:</b> čítače (dělič frekvencie), jednoduché togglovanie.</li>
+                                    <li><b>Príklad:</b> (T flip-flop tabuľka):</li>
+                                </ul>
+                                <table>
+                                    <tr>
+                                        <th>T</th>
+                                        <th>Q_prev</th>
+                                        <th>Q_next</th>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q6">
+                        <ul>
+                            <li><b>Posuvný register (shift register)</b>
+                                <ul>
+                                    <li>Dáta sa posúvajú sériovo bit po bite (napr. doľava alebo doprava).</li>
+                                    <li>Vstup / výstup môže byť sériový; často podporuje aj paralelný vstup/výstup, ale základná funkcionalita je posun.</li>
+                                    <li><b>Použitie:</b> sériová komunikácia, delay, vstavanie bitov, implementácia FIFO.</li>
+                                </ul>
+                            </li>
+                            <li><b>Paralelný register</b>
+                                <ul>
+                                    <li>Vstupné (alebo výstupné) bity sú všetky k dispozícii súčasne (paralelne).</li>
+                                    <li>Paralelné načítanie alebo paralelné čítanie (load).</li>
+                                    <li><b>Použitie:</b> dočasné ukladanie slov (napr. 8-bitový register pre procesor).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q7">
+                        <p class="answer"><b>Moorev automat</b> je typ konečného automatu; štandardne sa definuje 6-ticou, ale požadované päť prvkov uvádzam kompaktne.</p>
+                        <ul>
+                            <li>Množina stavov <code>𝑆</code> - všetky možné vnútorné stavy automatu.</li>
+                            <li>Vstupná abeceda <code>&Sigma;</code> - množina všetkých možných vstupných symbolov.</li>
+                            <li>Výstupná abeceda <code>&Lambda;</code> - množina možných výstupných symbolov.</li>
+                            <li>Prechodová funkcia <code>&delta; : 𝑆 × &Sigma;</code> &rarr; <code>𝑆</code> - určuje nový stav pre každý pár (stav,vstup).</li>
+                            <li>Počiatočný stav <code>s0 &isin; 𝑆</code> (alebo voliteľne počiatočný stav + výstupná funkcia)</li>
+                        </ul>
+                        <p class="answer"><b>Poznámka:</b> Moorev automat má výstup viazaný na <b>stav</b> (<code>output = &omega;(state)</code>), takže často sa ešte explicitne uvádza aj výstupná funkcia <br><code>&omega; : S → &Lambda;</code>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/7</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>

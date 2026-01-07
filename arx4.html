@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>4. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            code {
+                font-size: 1.5rem;
+                background-color: #3A3F4B;
+                font-weight: 600;
+                padding: 5px;
+            }
+
+            img {
+                height: 100%;
+                margin-left: 40px;
+                margin-top: 20px;
+                border-radius: 10px;
+                max-height: 40vh;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 2px solid #3A3F4B;
+                padding: 10px;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .card {
+                overflow-y: auto;
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+                box-sizing: border-box;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                min-height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                display: flex;
+            }
+
+            .answer {
+                font-size: 1.5rem;
+                margin: 15px;
+                line-height: 150%;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 10%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            ul > li > ul > li, ol > li, ul > li {
+                padding: 10px;
+            }
+
+            #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="arx4.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>4. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Aký je rozdiel v materiáli medzi polovodičom typu P a typu N?
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1">
+                        <p class="answer"><b>Polovodič typu P</b></p>
+                        <ul>
+                            <li>do kremíka sa pridá trojmocný prvok (napr. <b>hliník</b>),</li>
+                            <li>vznikajú diery <b>(kladné nosiče)</b>,</li>
+                            <li>prvok sa nazýva <b>akceptor</b>.</li>
+                        </ul>
+                        <p class="answer"><b>Polovodič typu N</b></p>
+                        <ul>
+                            <li>do kremíka sa pridá päťmocný prvok (napr. <b>fosfor</b>),</li>
+                            <li>vznikajú voľné elektróny <b>(záporné nosiče)</b>,</li>
+                            <li>prvok sa nazýva <b>donor</b>.</li>
+                        </ul>
+                        <p class="answer"><b>Príklad:</b></p>
+                        <ul>
+                            <li><code>Si</code> + <code>Al</code> → typ <b>P</b> (má o jeden elektrón <b>menej</b>)</li>
+                            <li><code>Si</code> + <code>P</code> → typ <b>N</b> (má o jeden elektrón <b>viac</b>)</li>
+                        </ul>
+                    </div>
+                    <div id="q2">
+                        <p class="answer">Diera je miesto, kde chýba elektrón. Keď sa elektrón presunie, „zanechá“ doterajšiu dieru a zaplní inú. Zvonku to vyzerá, akoby sa pohybovala kladná častica opačným smerom ako elektróny.</p>
+                        <p class="answer"><b>Príklad:</b></p>
+                        <ul>
+                            <li>Elektrón sa pohne z pozície <code>4</code> &rarr; <code>5</code>.</li>
+                            <li>Diera sa javí, že sa pohla z <code>5</code> &rarr; <code>4</code> <b>(opačný smer)</b>.</li>
+                        </ul>
+                    </div>
+                    <div id="q3">
+                        <img src="images/arx4-3.png" alt="">
+                    </div>
+                    <div id="q4">
+                        <img src="images/arx4-4.png" alt="">
+                    </div>
+                    <div id="q5">
+                        <p class="answer"><b>Bipolárny tranzistor (BJT)</b></p>
+                        <ul>
+                            <li>typy NPN / PNP</li>
+                            <li>prúd je riadený prúdom (bázový prúd)</li>
+                            <li>nosiče sú elektróny aj diery → bi-polárny</li>
+                            <li>vyššie prúdy, viac tepla</li>
+                        </ul>
+                        <p class="answer"><b>Unipolárny tranzistor (FET)</b></p>
+                        <ul>
+                            <li>riadený elektrickým poľom, takmer bez prúdu na gate</li>
+                            <li>prepínanie rýchlejšie, menšie straty</li>
+                            <li>nosič je iba jeden typ (elektróny alebo diery)</li>
+                        </ul>
+                    </div>
+                    <div id="q6">
+                        <ul>
+                            <li><b>MOS</b> – Metal Oxide Semiconductor</li>
+                            <li><b>CMOS</b> – Complementary MOS (používa dvojice NMOS + PMOS)</li>
+                            <li><b>FET</b> – Field Effect Transistor (tranzistor riadený elektrickým poľom)</li>
+                        </ul>
+                    </div>
+                    <div id="q7">
+                        <ol>
+                            <li><b>More-than-Moore</b>
+                                <ul>
+                                    <li>špecializované čipy (GPU, AI akcelerátory)</li>
+                                    <li>systémová integrácia (SoC)</li>
+                                </ul>
+                            </li>
+                            <li><b>Beyond Moore</b>
+                                <ul>
+                                    <li>kvantové počítače</li>
+                                    <li>optické počítače</li>
+                                    <li>grafénové a iné nové materiály</li>
+                                    <li>3D čipová architektúra</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="q8">
+                        <p class="answer"><b>SMD – Surface Mounted Device</b></p>
+                        <ul>
+                            <li>súčiastka montovaná priamo na povrch dosky (bez drôtových vývodov)</li>
+                        </ul>
+                        <p class="answer"><b>PCB – Printed Circuit Board</b></p>
+                        <ul>
+                            <li>plošný spoj (doska s medenými vodivými vrstvami)</li>
+                        </ul>
+                    </div>
+                    <div id="q9">
+                        <p class="answer"><b>Zadané:</b></p>
+                        <ul>
+                            <li>P = 5 W</li>
+                            <li>R_th = 20 K/W</li>
+                            <li>T_okolie = 20 °C</li>
+                            <li>T_limit = 100 °C</li>
+                        </ul>
+                        <p class="answer"><b>Výpočet aktuálnej teploty:</b></p>
+                        <p class="answer"><code>ΔT = P × R_th = 5 × 20 = 100 °C</code></p>
+                        <p class="answer"><code>T_chip = 20 + 100 = 120 °C</code> → prekročenie o 20 °C</p>
+                        <p class="answer">Limitná teplota: <b>100 °C</b></p>
+                        <p class="answer">Povolený nárast teploty:</p>
+                        <p class="answer"><code>100 – 20 = 80 °C</code></p>
+                        <p class="answer"><b>Povolený výkon:</b></p>
+                        <p class="answer"><code>P_max = 80 / 20 = 4 W</code></p>
+                        <p class="answer"><b>O koľko znížiť výkon?</b></p>
+                        <p class="answer"><code>5 W – 4 W = 1 Watt</code></p>
+                    </div>
+                    <div id="q10">
+                        <img src="images/arx4-10.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/10</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>
