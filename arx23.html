@@ -217,6 +217,51 @@
             #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11, #q12 {
                 display: none;
             }
+
+            @media (max-width: 800px) {
+                #bar-container {
+                    width: 90%;
+                }
+
+                h1 {
+                    font-size: 7vw;
+                }
+
+                .question-container {
+                    height: fit-content;
+                }
+
+                .answer-container {
+                    height: fit-content;
+                }
+
+                img {
+                    height: auto;
+                    width: 100%;
+                    margin-left: 0;
+                }
+
+                .image-container {
+                    width: 90%;
+                }
+
+                ul > li, code, ol > li {
+                    font-size: 1.2rem;
+                    line-height: 150%;
+                }
+
+                ul > li {
+                    padding: 10px;
+                }
+
+                .answer {
+                    font-size: 1.2rem;
+                }
+
+                th, td {
+                    font-size: 1rem;
+                }
+            }
         </style>
     </head>
     <body>
@@ -509,33 +554,33 @@
                                     <li>ak nepárny &rarr; paritný bit = 0</li>
                                 </ul>
                             </li>
-                            <table>
-                                <tr>
-                                    <th>Dáta</th>
-                                    <th>Počet 1</th>
-                                    <th>Paritný bit</th>
-                                    <th>Správne?</th>
-                                </tr>
-                                <tr>
-                                    <td>101011</td>
-                                    <td>4</td>
-                                    <td>1</td>
-                                    <td>&check;</td>
-                                </tr>
-                                <tr>
-                                    <td>111000</td>
-                                    <td>3</td>
-                                    <td>1</td>
-                                    <td>&cross; CHYBA</td>
-                                </tr>
-                                <tr>
-                                    <td>010111</td>
-                                    <td>4</td>
-                                    <td>1</td>
-                                    <td>&check;</td>
-                                </tr>
-                            </table>
                         </ul>
+                        <table>
+                            <tr>
+                                <th>Dáta</th>
+                                <th>Počet 1</th>
+                                <th>Paritný bit</th>
+                                <th>Správne?</th>
+                            </tr>
+                            <tr>
+                                <td>101011</td>
+                                <td>4</td>
+                                <td>1</td>
+                                <td>&check;</td>
+                            </tr>
+                            <tr>
+                                <td>111000</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>&cross; CHYBA</td>
+                            </tr>
+                            <tr>
+                                <td>010111</td>
+                                <td>4</td>
+                                <td>1</td>
+                                <td>&check;</td>
+                            </tr>
+                        </table>
                         <p class="answer">Chybný riadok: <b>2.</b></p>
                     </div>
                 </div>

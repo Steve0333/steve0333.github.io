@@ -12,6 +12,24 @@
             crossorigin="anonymous">
         </script>
         <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
             body {
                 font-family: 'Montserrat', 'Inter', 'Roboto';
                 background-color: #1E2227;
@@ -171,6 +189,26 @@
 
             #q2, #q3, #q4 {
                 display: none;
+            }
+
+            @media (max-width: 800px) {
+                #bar-container {
+                    width: 90%;
+                }
+
+                h1 {
+                    font-size: 7vw;
+                }
+
+                .answer-container {
+                    height: fit-content;
+                }
+
+                img {
+                    height: auto;
+                    width: 100%;
+                    margin-top: 30px;
+                }
             }
         </style>
     </head>

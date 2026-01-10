@@ -218,6 +218,51 @@
             #q2, #q3, #q4, #q5, #q6, #q7 {
                 display: none;
             }
+
+            @media (max-width: 800px) {
+                #bar-container {
+                    width: 90%;
+                }
+
+                h1 {
+                    font-size: 7vw;
+                }
+
+                .question-container {
+                    height: fit-content;
+                }
+
+                .answer-container {
+                    height: fit-content;
+                }
+
+                img {
+                    height: auto;
+                    width: 100%;
+                    margin-left: 0;
+                }
+
+                .image-container {
+                    width: 90%;
+                }
+
+                ul > li, code, ol > li {
+                    font-size: 1.2rem;
+                    line-height: 150%;
+                }
+
+                ul > li {
+                    padding: 10px;
+                }
+
+                .answer {
+                    font-size: 1.2rem;
+                }
+
+                th, td {
+                    font-size: 1rem;
+                }
+            }
         </style>
     </head>
     <body>
@@ -324,8 +369,8 @@
                                 <th>A</th>
                                 <th>B</th>
                                 <th>C</th>
-                                <th>A ⊕ B</th>
-                                <th>(A ⊕ B) ∧ C</th>
+                                <th>A &xoplus; B</th>
+                                <th>(A &xoplus; B) ∧ C</th>
                             </tr>
                             <tr>
                                 <td>0</td>
