@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>6. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            code {
+                font-size: 1.5rem;
+                background-color: #3A3F4B;
+                font-weight: 600;
+                padding: 5px;
+            }
+
+            img {
+                height: 100%;
+                margin-left: 40px;
+                border-radius: 10px;
+                max-height: 40vh;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 2px solid #3A3F4B;
+                padding: 10px;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .card {
+                overflow-y: auto;
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+                box-sizing: border-box;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                min-height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                display: flex;
+            }
+
+            .answer {
+                font-size: 1.5rem;
+                margin: 15px;
+                line-height: 150%;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 25%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            ul > li > ul > li, ol > li, ul > li {
+                padding: 10px;
+            }
+
+            #q2, #q3, #q4 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="arx6.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>6. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Aké typy pamäte obsahuje počítač a ako ich usporiadame podľa kapacity, rýchlosti prístupu a ceny za bit?
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1">
+                        <p class="answer"><b>Základné typy pamätí v počítači:</b></p>
+                        <ol>
+                            <li>Registre procesora</li>
+                            <li>Vyrovnávacia pamäť (Cache)</li>
+                            <li>Hlavná (operačná) pamäť – RAM</li>
+                            <li>Vonkajšie pamäte – SSD, HDD, optické disky</li>
+                        </ol>
+                        <p class="answer"><b>Usporiadanie podľa parametrov:</b></p>
+                        <table>
+                            <tr>
+                                <th>Typ pamäte</th>
+                                <th>Rýchlosť</th>
+                                <th>Kapacita</th>
+                                <th>Cena za bit</th>
+                            </tr>
+                            <tr>
+                                <td>Registre</td>
+                                <td>Najrýchlejšia</td>
+                                <td>Najmenšia</td>
+                                <td>Najdrahšia</td>
+                            </tr>
+                            <tr>
+                                <td>Cache</td>
+                                <td>Veľmi rýchla</td>
+                                <td>Malá</td>
+                                <td>Veľmi drahá</td>
+                            </tr>
+                            <tr>
+                                <td>RAM</td>
+                                <td>Stredná</td>
+                                <td>Stredná</td>
+                                <td>Stredná</td>
+                            </tr>
+                            <tr>
+                                <td>SSD / HDD</td>
+                                <td>Najpomalšia	</td>
+                                <td>Najväčšia</td>
+                                <td>Najlacnejšia</td>
+                            </tr>
+                        </table>
+                        <p class="answer"><b>Všeobecné pravidlo:</b></p>
+                        <ul>
+                            <li>Čím je pamäť <b>rýchlejšia</b>, tým je <b>menšia</b> a <b>drahšia</b> na bit.</li>
+                            <li>Čím je pamäť <b>väčšia</b>, tým je <b>pomalšia</b> a <b>lacnejšia</b> na bit.</li>
+                        </ul>
+                    </div>
+                    <div id="q2">
+                        <p class="answer"><b>Účel cache pamäte:</b></p>
+                        <p class="answer">Vyrovnávacia pamäť cache slúži na preklenutie rozdielu medzi rýchlosťou procesora a pomalšou hlavnou pamäťou (RAM).</p>
+                        <p class="answer">Ukladá často používané dáta a inštrukcie „do zásoby“, aby k nim mal procesor rýchlejší prístup.</p>
+                        <p class="answer"><b>Úrovne cache:</b></p>
+                        <ul>
+                            <li>L1 cache - priamo v jadre procesora, najrýchlejšia, najmenšia</li>
+                            <li>L2 cache - často na čipe procesora alebo blízko neho, väčšia, trocha pomalšia</li>
+                            <li>L3 cache - zdieľaná pre viac jadier, najväčšia, najpomalšia z cache úrovní</li>
+                        </ul>
+                        <p class="answer"><b>Poradie: L1 → L2 → L3</b> (rýchlosť klesá, kapacita rastie)</p>
+                    </div>
+                    <div id="q3">
+                        <p class="answer"><b>Volatilná pamäť (prchavá):</b></p>
+                        <ul>
+                            <li>Po vypnutí napájania stratí svoj obsah.</li>
+                            <li>Typický príklad: <b>RAM</b> (operačná pamäť).</li>
+                            <li>Používa sa na dočasné uchovanie dát počas behu programu.</li>
+                        </ul>
+                        <p class="answer"><b>Dynamická pamäť (DRAM):</b></p>
+                        <ul>
+                            <li>Základná pamäťová bunka je tvorená kondenzátorom.</li>
+                            <li>Elektrický náboj sa časom vybíja, preto je nutné pamäť pravidelne obnovovať (refresh).</li>
+                            <li>Väčšina operačných pamätí v počítačoch je dynamická RAM (DRAM).</li>
+                        </ul>
+                    </div>
+                    <div id="q4">
+                        <p class="answer"><b>RAID = Redundant Array of Independent Disks</b></p>
+                        <p class="answer"><b>Základné funkcie RAID:</b></p>
+                        <ol>
+                            <li><b>Ochrana proti strate dát (redundancia)</b>
+                                <ul>
+                                    <li>dáta sa ukladajú zrkadlovo alebo s paritou</li>
+                                    <li>porucha jedného disku nespôsobí stratu dát</li>
+                                </ul>
+                            </li>
+                            <li><b>Zvýšenie rýchlosti čítania a zápisu</b>
+                                <ul>
+                                    <li>dáta sa rozdeľujú medzi viac diskov (striping)</li>
+                                    <li>paralelná práca diskov zvyšuje výkon</li>
+                                </ul>
+                            </li>
+                            <li><b>Kombinácia oboch vlastností</b>
+                                <ul>
+                                    <li>niektoré RAID úrovne kombinujú rýchlosť aj bezpečnosť (napr. <b>RAID 10</b>)</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/4</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>

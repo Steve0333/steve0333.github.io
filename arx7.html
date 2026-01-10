@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>7. prednáška</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            ::-webkit-scrollbar{
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+                margin: 30px 0; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #3A3F4B;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #454951;
+            }
+
+            body {
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                background-color: #1E2227;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+                height: 100vh;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: 30px;
+                height: 10%;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+                width: 95%;
+                text-align: center;
+                padding-right: 5%;
+            }
+
+            section {
+                display: flex;
+                justify-content: center;
+                background-color: #23272E;
+                height: 75%;
+            }
+
+            footer {
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #1E2227;
+                border: none;
+                transition: 0.2s;
+                border-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #23272E;
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            li {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            code {
+                font-size: 1.5rem;
+                background-color: #3A3F4B;
+                font-weight: 600;
+                padding: 5px;
+            }
+
+            img {
+                height: 100%;
+                margin-left: 40px;
+                border-radius: 10px;
+                max-height: 40vh;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 2px solid #3A3F4B;
+                padding: 10px;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .card {
+                overflow-y: auto;
+                width: 100%;
+                margin: 3%;
+                background-color: #282C34;
+                border-radius: 40px;
+                border: 2px solid #454951;
+                box-sizing: border-box;
+            }
+
+            .arrow {
+                color: whitesmoke;
+                font-size: 3rem;
+                font-family: 'Montserrat', 'Inter', 'Roboto';
+                margin: 0;
+                padding-bottom: 7px;
+            }
+
+            .question-container {
+                width: 100%;
+                height: 15%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .answer-container {
+                width: 100%;
+                min-height: 85%;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                display: flex;
+            }
+
+            .answer {
+                font-size: 1.5rem;
+                margin: 15px;
+                line-height: 150%;
+            }
+
+            #back {
+                width: 5%;
+                text-align: center;
+                font-size: 3rem;
+                text-decoration: none;
+                color: whitesmoke;
+                transition: 0.2s ease;
+            }
+
+            #back:hover {
+                font-size: 3.5rem;
+            }
+
+            #bar-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+            }
+
+            #bar {
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+                background-color: #454951;
+                margin: 0px 20px;
+            }
+
+            #progress {
+                height: 100%;
+                width: 9%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+            }
+
+            #count {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            #question {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            ul > li > ul > li, ol > li, ul > li {
+                padding: 10px;
+            }
+
+            #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="arx7.js"></script>
+        <header>
+            <a id="back" href="index.html">&larr;</a>
+            <h1>7. prednáška</h1>
+        </header>
+        <section>
+            <div class="card">
+                <div class="question-container">
+                    <p id="question">
+                        Vymenujte ktoré časti musí obsahovať procesor, aby mohol čítať z pamäte inštrukcie a prenášať dáta, robiť výpočty a uchovávať medzivýsledky.
+                    </p>
+                </div>
+                <div class="answer-container">
+                    <div id="q1">
+                        <p class="answer"><b>Procesor musí obsahovať tieto základné časti:</b></p>
+                        <ul>
+                            <li><b>Riadiaca jednotka (CU – Control Unit)</b> – zabezpečuje výber, dekódovanie a riadenie vykonávania inštrukcií.</li>
+                            <li><b>Aritmeticko-logická jednotka (ALU)</b> – vykonáva aritmetické a logické operácie.</li>
+                            <li><b>Množina registrov</b> – slúži na uchovanie operandov, výsledkov a adries.</li>
+                            <li><b>Akumulátor</b> – osobitný register pre operand alebo medzivýsledok.</li>
+                            <li><b>Register stavového slova (flags register)</b> – uchováva príznaky výsledkov operácií (nulový výsledok, pretečenie, záporný výsledok…).</li>
+                            <li><b>Program Counter (PC)</b> – register adresy nasledujúcej inštrukcie.</li>
+                            <li><b>Stack Pointer (SP)</b> – ukazovateľ zásobníka.</li>
+                            <li><b>Zbernice</b> – adresová, dátová a riadiaca.</li>
+                        </ul>
+                    </div>
+                    <div id="q2">
+                        <p class="answer"><b>Základný inštrukčný cyklus pozostáva z týchto krokov:</b></p>
+                        <ol>
+                            <li>Výber inštrukcie z pamäte <b>(fetch)</b></li>
+                            <li>Dekódovanie inštrukcie <b>(decode)</b></li>
+                            <li>Výber operandov z registrov</li>
+                            <li>Vykonanie operácie v ALU <b>(execute)</b></li>
+                            <li>Zápis výsledku do registra <b>(write-back)</b></li>
+                        </ol>
+                        <p class="answer"><b>Pri jednoduchých operáciách v registroch je často zjednodušený na tri kroky: <code>fetch</code> - <code>decode</code> - <code>execute</code>.</b></p>
+                    </div>
+                    <div id="q3">
+                        <p class="answer"><b>Stack pointer (SP) je register, ktorý:</b></p>
+                        <ul>
+                            <li>obsahuje adresu vrcholu zásobníka <b>(stack)</b> v pamäti,</li>
+                            <li>slúži na ukladanie návratových adries pri:
+                                <ul>
+                                    <li>volaní podprogramov (inštrukcia <code>PUSH</code>),</li>
+                                    <li>návrate z podprogramov (inštrukcia <code>POP</code>),</li>
+                                </ul>
+                            </li>
+                            <li>zásobník pracuje princípom <b>LIFO</b> (<code>Last In - First Out</code>).</li>
+                        </ul>
+                        <p class="answer"><b>Používa sa aj pri obsluhe prerušení.</b></p>
+                    </div>
+                    <div id="q4">
+                        <p class="answer"><b>CISC (Complex Instruction Set Computer):</b></p>
+                        <ul>
+                            <li>veľký a zložitý inštrukčný súbor,</li>
+                            <li>zložité inštrukcie vykonávané na viac taktov,</li>
+                            <li>mnoho spôsobov adresácie,</li>
+                            <li>veľká riadiaca jednotka,</li>
+                            <li><b>Príklad:</b> Intel 8086, x86 architektúra.</li>
+                        </ul>
+                        <p class="answer"><b>RISC (Reduced Instruction Set Computer):</b></p>
+                        <ul>
+                            <li>zjednodušený inštrukčný súbor,</li>
+                            <li>krátke, jednoduché inštrukcie,</li>
+                            <li>väčšina inštrukcií sa vykoná za 1 takt,</li>
+                            <li>jednoduchšia riadiaca jednotka,</li>
+                            <li>viac registrov,</li>
+                            <li><b>Príklad:</b> ARM, MIPS.</li>
+                        </ul>
+                    </div>
+                    <div id="q5">
+                        <p class="answer"><b>Je to technika zvyšovania výkonu, pri ktorej:</b></p>
+                        <ul>
+                            <li>procesor <b>vykonáva viac možných vetiev programu naraz</b> ešte predtým, ako pozná výsledok podmienky,</li>
+                            <li>po vyhodnotení podmienky sa:
+                                <ul>
+                                    <li>správna vetva ponechá,</li>
+                                    <li>ostatné sa zahodia.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q6">
+                        <p class="answer"><b>Pipelining (prúdové spracovanie)</b> znamená, že sa viac inštrukcií spracúva súčasne v rôznych fázach – ako na výrobnom páse.</p>
+                        <p class="answer"><b>Trojstupňový pipeline:</b></p>
+                        <ul>
+                            <li>Fetch - načítanie inštrukcie z pamäte</li>
+                            <li>Decode - dekódovanie inštrukcie</li>
+                            <li>Execute - vykonanie inštrukcie</li>
+                        </ul>
+                        <p class="answer">Každý takt sa každá fáza venuje inej inštrukcii &rarr; výrazné zvýšenie výkonu.</p>
+                    </div>
+                    <div id="q7">
+                        <p class="answer">Problém:</p>
+                        <ul>
+                            <li>pri inštrukcii skoku sa <b>zruší rozpracovaný pipeline</b>,</li>
+                            <li>nasledujúce inštrukcie boli prednačítané z <b>nesprávnej adresy</b>.</li>
+                        </ul>
+                        <p class="answer">Riešenie:</p>
+                        <ul>
+                            <li>zavedenie <b>podmieneného vykonávania inštrukcií</b>:
+                                <ul>
+                                    <li>každá inštrukcia obsahuje podmienku, či sa má vykonať,</li>
+                                    <li>ak podmienka neplatí, inštrukcia sa len <b>preskočí bez skoku</b>,</li>
+                                    <li>tým sa <b>nenaruší plynulosť pipeline</b>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="q8">
+                        <p class="answer"><b>Vektor prerušenia je:</b></p>
+                        <ul>
+                            <li>pevne určená pamäťová adresa,</li>
+                            <li>na ktorej začína program na obsluhu konkrétneho prerušenia.</li>
+                        </ul>
+                        <p class="answer"><b>Použije sa vtedy, keď:</b></p>
+                        <ul>
+                            <li>dôjde k vonkajšej alebo vnútornej udalosti (napr. <b>delenie nulou</b>, <b>I/O operácia</b>, <b>reset</b>),</li>
+                            <li>procesor uloží svoj stav,</li>
+                            <li>skočí na adresu vektora prerušenia,</li>
+                            <li>vykoná obsluhu a po jej skončení sa vráti späť.</li>
+                        </ul>
+                    </div>
+                    <div id="q9">
+                        <p class="answer">Aby bola zabezpečená <b>ochrana systému a stabilita počítača</b>:</p>
+                        <p class="answer"><b>Kernel mode (supervisor mode):</b></p>
+                        <ul>
+                            <li>procesor má plný prístup ku všetkým inštrukciám a registre,</li>
+                            <li>používa ho <b>operačný systém</b>.</li>
+                        </ul>
+                        <p class="answer"><b>User mode:</b></p>
+                        <ul>
+                            <li>aplikácie majú <b>obmedzené práva</b>,</li>
+                            <li>nemôžu priamo ovládať hardvér ani cudziu pamäť,</li>
+                            <li>komunikujú iba cez <b>systémové volania (prerušenia)</b>.</li>
+                        </ul>
+                    </div>
+                    <div id="q10">
+                        <p class="answer"><b>Princetonská (von Neumannova) architektúra:</b></p>
+                        <ul>
+                            <li>spoločná pamäť pre program aj dáta,</li>
+                            <li>jednoduchšie riešenie,</li>
+                            <li>používa sa v bežných počítačoch (PC, notebooky).</li>
+                        </ul>
+                        <p class="answer"><b>Harvardská architektúra:</b></p>
+                        <ul>
+                            <li>oddelená pamäť pre inštrukcie a dáta,</li>
+                            <li>vyšší výkon,</li>
+                            <li>používa sa v mikrokontroléroch a jednoúčelových zariadeniach.</li>
+                        </ul>
+                    </div>
+                    <div id="q11">
+                        <p class="answer">Je to rozdelenie počítačov podľa počtu <b>inštrukčných a dátových tokov</b>:</p>
+                        <ol>
+                            <li><code>SISD</code> <b>(Single Instruction stream Single Data stream)</b>
+                                <ul>
+                                    <li>jeden tok inštrukcií, jeden tok dát</li>
+                                    <li>klasické jednojadrové procesory</li>
+                                </ul>
+                            </li>
+                            <li><code>SIMD</code> <b>(Single Instruction stream Multiple Data stream)</b>
+                                <ul>
+                                    <li>jeden tok inštrukcií, viac tokov dát</li>
+                                    <li>grafické karty (GPU)</li>
+                                </ul>
+                            </li>
+                            <li><code>MISD</code> <b>(Multiple Instruction stream Single Data stream)</b>
+                                <ul>
+                                    <li>viac tokov inštrukcií, jeden tok dát</li>
+                                    <li>redundancia, špeciálne systémy</li>
+                                </ul>
+                            </li>
+                            <li><code>MIMD</code> <b>(Multiple Instruction stream Multiple Data stream)</b>
+                                <ul>
+                                    <li>viac tokov inštrukcií, viac tokov dát</li>
+                                    <li>viacjadrové procesory, servery, paralelné počítače</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p id="count">1/11</p>
+            <div id="bar-container">
+                <button onclick="previous()"><p class="arrow">&larr;</p></button>
+                <div id="bar">
+                    <div id="progress"></div>
+                </div>
+                <button onclick="next()"><p class="arrow">&rarr;</p></button>
+            </div>
+        </footer>
+    </body>
+</html>
