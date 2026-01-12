@@ -70,6 +70,8 @@
                 width: 50%;
                 display: flex;
                 justify-content: center;
+                flex-direction: column;
+                align-items: center;
                 padding: 20px;
             }
 
@@ -82,6 +84,19 @@
                 align-items: center;
                 border-radius: 30px;
                 border: 2px solid #454951;
+            }
+
+            .button-container {
+                background-color: whitesmoke;
+                padding: 10px 30px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                transition: 0.2s;
+            }
+            
+            .button-container:hover {
+                background-color: #b8bec8;
+                box-shadow: 2px 5px 5px #23272E;
             }
 
             @media (max-width: 800px) {
@@ -115,6 +130,9 @@
                         <li><a href="inf6.html">6. prednáška</a></li>
                         <li><a href="inf7.html">7. prednáška</a></li>
                     </ul>
+                    <div class="button-container">
+                        <a href="inf-test.php">Teszt</a>
+                    </div>
                 </div>
             </div>
             <div class="right">
@@ -128,6 +146,9 @@
                         <li><a href="arx7.html">7. prednáška</a></li>
                         <li><a href="arx8.html">8. prednáška</a></li>
                     </ul>
+                    <div class="button-container">
+                        <a href="">Teszt</a>
+                    </div>
                 </div>
             </div>
         </section>
